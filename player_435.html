@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="keywords" content="Renju, Renju rating, whole-history rating, WHR" />
+    <meta name="description" content="Whole-history rating of Renju players" />
+    <meta name="author" content="Tianyi Hao" />
+    <meta name="copyright" content="2024 Renju Rating" />
+    <title>Fadieiev Gennadii, Ukraine - Renju Rating</title>
+    <script>
+        if (window.location.protocol != "file:") {
+            var _hmt = _hmt || [];
+            (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?cb525b0b0c34b96320b743cdf90a90c3";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+            })();
+        }
+    </script>
+    <script>
+        if (window.location.protocol != "file:") {
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-119927498-1', 'auto');
+            ga('send', 'pageview');
+        }
+    </script>
+    <link href="css/default.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="outer">
+      <div id="header"></div>
+      <div id="menu">
+        <ul>
+          <li class="first">
+            <a href="index.html">Home page</a>
+          </li>
+          <li>
+            <a href="players.html">Players</a>
+          </li>
+          <li>
+            <a href="tournaments.html">Tournaments</a>
+          </li>
+          <li>
+            <a href="top.html">History of Top players</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="primaryContentContainer">
+          <div id="primaryContent">
+            <link href="css/nv.d3.css" rel="stylesheet" type="text/css">
+            <h1><img src="flag/UKR.svg" class="flag_large" alt="UKR" /> Fadieiev Gennadii</h1>
+            <p><b>Place:</b> Ukraine</p>
+            <p><b>Rating:</b> 1316.75, <b>Rank:</b> 396</p>
+            <p><b>First game:</b> 2011-12-31, <b>Last game:</b> 2011-12-31</p>
+            <p><b>Top rating:</b> 1316.75 (2011-12-31)</p>
+            <p><b>Games:</b> 24, <b>Wins:</b> 0, <b>Draws:</b> 0, <b>Losses:</b> 24</p>
+            <p><b>Gy1:</b> 0, <b>Games:</b> 24</p>
+            <div id="chart1"></div>
+            <script src="js/d3.min.js" charset="utf-8"></script>
+            <script src="js/nv.d3.js"></script>
+            <script>
+    var chart;
+    var data;
+
+    nv.addGraph(function() {
+        data = Data();
+        var y_min = 1.e+9, y_max = -1.e+9;
+        for(var i = 0; i < data[0].values.length; i ++) {
+            var cur_y = data[0].values[i].y;
+            y_min = Math.min(y_min, cur_y);
+            y_max = Math.max(y_max, cur_y);
+        }
+        var y_d = 200. - (y_max - y_min);
+        if(y_d > 0.) {
+            y_max += y_d / 2.
+            y_min -= y_d / 2.
+        }
+
+        chart = nv.models.lineChart()
+            .options({
+                duration: 300,
+                useInteractiveGuideline: true
+            })
+        ;
+
+        chart.xAxis
+            .axisLabel("Date")
+            .tickFormat(function(d) {
+          return d3.time.format('%Y-%m-%d')(new Date(d))
+		});
+
+		chart.xScale(d3.time.scale());
+
+        chart.yAxis
+            .axisLabel('Rating')
+            .tickFormat(d3.format(',.2f'))
+        ;
+
+        chart.forceY([y_min, y_max]);
+		
+		chart.showYAxis(true).showXAxis(true).showLegend(false).margin({top:20, left: 100, right:100});
+
+        d3.select('#chart1').append('svg')
+            .datum(data)
+            .call(chart);
+
+        nv.utils.windowResize(chart.update);
+
+        return chart;
+    });
+
+    function Data() {
+        var rating = [{x: 1325289600000, y: 1316.749347}, ];
+            ;
+
+        return [
+            {
+                values: rating,
+                color: "#ff7f0e",
+            }
+        ];
+    }
+
+</script>
+            <table>
+              <tbody>
+                <tr>
+                  <th colspan="5">
+                    <a href="tournament_89.html">Group D, 2011</a>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="second">Date</th>
+                  <td class="num">2011-12-31</td>
+                  <th class="second">Rating</th>
+                  <td class="num">1316.75</td>
+                </tr>
+                <tr>
+                  <th>Color</th>
+                  <th>Result</th>
+                  <th colspan="2">Opponent</th>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10276">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/RUS.svg" class="flag" alt="RUS" />
+                    <a href="player_42.html">Bobkov Yevgeni</a>
+                  </td>
+                  <td class="num">2358.77</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10287">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/EST.svg" class="flag" alt="EST" />
+                    <a href="player_91.html">Oll Aivo</a>
+                  </td>
+                  <td class="num">2460.22</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10298">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/RUS.svg" class="flag" alt="RUS" />
+                    <a href="player_50.html">Makarov Pavel</a>
+                  </td>
+                  <td class="num">2141.72</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10309">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/RUS.svg" class="flag" alt="RUS" />
+                    <a href="player_51.html">Golosov Victor</a>
+                  </td>
+                  <td class="num">2338.92</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10320">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/RUS.svg" class="flag" alt="RUS" />
+                    <a href="player_170.html">Volkov Sergey</a>
+                  </td>
+                  <td class="num">2180.90</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10331">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/RUS.svg" class="flag" alt="RUS" />
+                    <a href="player_82.html">Kurochkin Viktor</a>
+                  </td>
+                  <td class="num">1770.09</td>
+                </tr>
+                <tr>
+                  <td>Black</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10342">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/RUS.svg" class="flag" alt="RUS" />
+                    <a href="player_176.html">Gromova Irina</a>
+                  </td>
+                  <td class="num">1770.29</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10353">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/SWE.svg" class="flag" alt="SWE" />
+                    <a href="player_78.html">Asplund Bengt</a>
+                  </td>
+                  <td class="num">2039.52</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10364">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_433.html">Qiu Weifu</a>
+                  </td>
+                  <td class="num">2296.72</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10375">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/SWE.svg" class="flag" alt="SWE" />
+                    <a href="player_434.html">Andersson Tord</a>
+                  </td>
+                  <td class="num">2114.33</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10377">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/RUS.svg" class="flag" alt="RUS" />
+                    <a href="player_42.html">Bobkov Yevgeni</a>
+                  </td>
+                  <td class="num">2358.77</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10378">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/EST.svg" class="flag" alt="EST" />
+                    <a href="player_91.html">Oll Aivo</a>
+                  </td>
+                  <td class="num">2460.22</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10379">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/RUS.svg" class="flag" alt="RUS" />
+                    <a href="player_50.html">Makarov Pavel</a>
+                  </td>
+                  <td class="num">2141.72</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10380">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/RUS.svg" class="flag" alt="RUS" />
+                    <a href="player_51.html">Golosov Victor</a>
+                  </td>
+                  <td class="num">2338.92</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10381">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/RUS.svg" class="flag" alt="RUS" />
+                    <a href="player_170.html">Volkov Sergey</a>
+                  </td>
+                  <td class="num">2180.90</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10382">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/RUS.svg" class="flag" alt="RUS" />
+                    <a href="player_82.html">Kurochkin Viktor</a>
+                  </td>
+                  <td class="num">1770.09</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10383">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/RUS.svg" class="flag" alt="RUS" />
+                    <a href="player_176.html">Gromova Irina</a>
+                  </td>
+                  <td class="num">1770.29</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10384">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/SWE.svg" class="flag" alt="SWE" />
+                    <a href="player_78.html">Asplund Bengt</a>
+                  </td>
+                  <td class="num">2039.52</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10385">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_433.html">Qiu Weifu</a>
+                  </td>
+                  <td class="num">2296.72</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10386">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/SWE.svg" class="flag" alt="SWE" />
+                    <a href="player_434.html">Andersson Tord</a>
+                  </td>
+                  <td class="num">2114.33</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10387">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_216.html">Feng Huasheng</a>
+                  </td>
+                  <td class="num">1914.52</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10398">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_216.html">Feng Huasheng</a>
+                  </td>
+                  <td class="num">1914.52</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10409">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/RUS.svg" class="flag" alt="RUS" />
+                    <a href="player_173.html">Kuleshova Tatiana</a>
+                  </td>
+                  <td class="num">1510.09</td>
+                </tr>
+                <tr>
+                  <td>Black</td>
+                  <td class="loss">
+                    <a href="http://renju.net/media/games.php?gameid=10421">Loss</a>
+                  </td>
+                  <td>
+                    <img src="flag/RUS.svg" class="flag" alt="RUS" />
+                    <a href="player_173.html">Kuleshova Tatiana</a>
+                  </td>
+                  <td class="num">1510.09</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="clear" />
+      </div>
+      <div id="footer">
+        <p>Theme based on <a href="http://templated.co/genericblue">GenericBlue</a> designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>

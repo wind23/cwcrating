@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="keywords" content="Renju, Renju rating, whole-history rating, WHR" />
+    <meta name="description" content="Whole-history rating of Renju players" />
+    <meta name="author" content="Tianyi Hao" />
+    <meta name="copyright" content="2024 Renju Rating" />
+    <title>Whole History Rating (WHR) of Correspondence Players in China (2003-12-31) - Renju Rating</title>
+    <script>
+        if (window.location.protocol != "file:") {
+            var _hmt = _hmt || [];
+            (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?cb525b0b0c34b96320b743cdf90a90c3";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+            })();
+        }
+    </script>
+    <script>
+        if (window.location.protocol != "file:") {
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-119927498-1', 'auto');
+            ga('send', 'pageview');
+        }
+    </script>
+    <link href="css/default.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="outer">
+      <div id="header"></div>
+      <div id="menu">
+        <ul>
+          <li class="first">
+            <a href="index.html">Home page</a>
+          </li>
+          <li>
+            <a href="players.html">Players</a>
+          </li>
+          <li>
+            <a href="tournaments.html">Tournaments</a>
+          </li>
+          <li>
+            <a href="top.html">History of Top players</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="primaryContentContainer">
+          <div id="primaryContent">
+            <h1>Whole History Rating (WHR) of Correspondence Players in China (2003-12-31)</h1>
+            <p><b>Last update:</b> 2024-03-24</p>
+            <p><b>Note:</b> This rating is calculated based on the <a href="https://www.remi-coulom.fr/WHR/">WHR algorithm</a> by Rémi Coulom, a similar approach as the <a href="https://www.goratings.org/en/">Go Ratings</a>. The core algorithm is based on the <a href="https://github.com/wind23/whr_renju">open-source code</a> on Github.</p>
+            <p><b>History ratings: </b><select onchange="this.options[this.selectedIndex].value &amp;&amp; (window.location = this.options[this.selectedIndex].value);"><option value="rating_c4.html">Current</option><option value="rating_c4_20231231.html">2023</option><option value="rating_c4_20221231.html">2022</option><option value="rating_c4_20211231.html">2021</option><option value="rating_c4_20201231.html">2020</option><option value="rating_c4_20191231.html">2019</option><option value="rating_c4_20181231.html">2018</option><option value="rating_c4_20171231.html">2017</option><option value="rating_c4_20161231.html">2016</option><option value="rating_c4_20151231.html">2015</option><option value="rating_c4_20141231.html">2014</option><option value="rating_c4_20131231.html">2013</option><option value="rating_c4_20121231.html">2012</option><option value="rating_c4_20111231.html">2011</option><option value="rating_c4_20101231.html">2010</option><option value="rating_c4_20091231.html">2009</option><option value="rating_c4_20081231.html">2008</option><option value="rating_c4_20071231.html">2007</option><option value="rating_c4_20061231.html">2006</option><option value="rating_c4_20051231.html">2005</option><option value="rating_c4_20041231.html">2004</option><option value="rating_c4_20031231.html" selected="selected">2003</option><option value="rating_c4_20021231.html">2002</option><option value="rating_c4_20011231.html">2001</option><option value="rating_c4_20001231.html">2000</option><option value="rating_c4_19991231.html">1999</option><option value="rating_c4_19981231.html">1998</option><option value="rating_c4_19971231.html">1997</option><option value="rating_c4_19961231.html">1996</option><option value="rating_c4_19951231.html">1995</option></select>&nbsp;&nbsp;&nbsp;&nbsp;<b>Country/Region: </b><select onchange="this.options[this.selectedIndex].value &amp;&amp; (window.location = this.options[this.selectedIndex].value);"><option value="rating_20031231.html">All</option><option value="rating_c8_20031231.html">Armenia</option><option value="rating_c6_20031231.html">Azerbaijan</option><option value="rating_c26_20031231.html">Brazil</option><option value="rating_c30_20031231.html">Canada</option><option value="rating_c4_20031231.html" selected="selected">China</option><option value="rating_c29_20031231.html">Chinese Taipei</option><option value="rating_c37_20031231.html">Czechia</option><option value="rating_c3_20031231.html">Estonia</option><option value="rating_c33_20031231.html">Finland</option><option value="rating_c12_20031231.html">France</option><option value="rating_c19_20031231.html">Hungary</option><option value="rating_c22_20031231.html">Israel</option><option value="rating_c16_20031231.html">Italy</option><option value="rating_c1_20031231.html">Japan</option><option value="rating_c9_20031231.html">Latvia</option><option value="rating_c5_20031231.html">Lithuania</option><option value="rating_c25_20031231.html">Moldova</option><option value="rating_c11_20031231.html">Poland</option><option value="rating_c15_20031231.html">Portugal</option><option value="rating_c34_20031231.html">Republic of Korea</option><option value="rating_c7_20031231.html">Russia</option><option value="rating_c43_20031231.html">Spain</option><option value="rating_c2_20031231.html">Sweden</option><option value="rating_c10_20031231.html">Ukraine</option><option value="rating_c41_20031231.html">United Kingdom</option><option value="rating_c13_20031231.html">United States</option><option value="rating_c20_20031231.html">Unknown</option><option value="rating_c31_20031231.html">Uzbekistan</option></select></p>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Rank</th>
+                  <th>Player</th>
+                  <th>Rating</th>
+                  <th>Gy1</th>
+                  <th>Games</th>
+                </tr>
+                <tr>
+                  <td class="num">1</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_191.html">Xinpeng Lee</a>
+                  </td>
+                  <td class="num">2513</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">2</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_161.html">Yang Meng</a>
+                  </td>
+                  <td class="num">2441</td>
+                  <td class="num">22</td>
+                  <td class="num">42</td>
+                </tr>
+                <tr>
+                  <td class="num">3</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_163.html">Sun Chengmin</a>
+                  </td>
+                  <td class="num">2428</td>
+                  <td class="num">22</td>
+                  <td class="num">42</td>
+                </tr>
+                <tr>
+                  <td class="num">4</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_27.html">Zhang Jinyu</a>
+                  </td>
+                  <td class="num">2406</td>
+                  <td class="num">22</td>
+                  <td class="num">102</td>
+                </tr>
+                <tr>
+                  <td class="num">5</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_49.html">Chen Wei</a>
+                  </td>
+                  <td class="num">2399</td>
+                  <td class="num">22</td>
+                  <td class="num">40</td>
+                </tr>
+                <tr>
+                  <td class="num">6</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_140.html">Song Xian</a>
+                  </td>
+                  <td class="num">2393</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">7</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_146.html">Lu Wenzhe</a>
+                  </td>
+                  <td class="num">2320</td>
+                  <td class="num">22</td>
+                  <td class="num">42</td>
+                </tr>
+                <tr>
+                  <td class="num">8</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_136.html">Chuancheng Li</a>
+                  </td>
+                  <td class="num">2254</td>
+                  <td class="num">22</td>
+                  <td class="num">42</td>
+                </tr>
+                <tr>
+                  <td class="num">9</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_148.html">Yuang Coco</a>
+                  </td>
+                  <td class="num">2245</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">10</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_166.html">Zhao Jianxin</a>
+                  </td>
+                  <td class="num">2235</td>
+                  <td class="num">22</td>
+                  <td class="num">42</td>
+                </tr>
+                <tr>
+                  <td class="num">11</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_137.html">Cheng Mu</a>
+                  </td>
+                  <td class="num">2215</td>
+                  <td class="num">22</td>
+                  <td class="num">42</td>
+                </tr>
+                <tr>
+                  <td class="num">12</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_141.html">Wang Peng</a>
+                  </td>
+                  <td class="num">2215</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">13</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_199.html">Zhou Shan Zhen</a>
+                  </td>
+                  <td class="num">2213</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">14</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_164.html">Yang Xuzl</a>
+                  </td>
+                  <td class="num">2207</td>
+                  <td class="num">22</td>
+                  <td class="num">42</td>
+                </tr>
+                <tr>
+                  <td class="num">15</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_310.html">Zhou Peiqiu</a>
+                  </td>
+                  <td class="num">2185</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">16</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_57.html">Han Youning</a>
+                  </td>
+                  <td class="num">2161</td>
+                  <td class="num">20</td>
+                  <td class="num">40</td>
+                </tr>
+                <tr>
+                  <td class="num">17</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_142.html">Wen Hao</a>
+                  </td>
+                  <td class="num">2158</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">18</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_143.html">Xingyue</a>
+                  </td>
+                  <td class="num">2156</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">19</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_190.html">Yao Li</a>
+                  </td>
+                  <td class="num">2141</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">20</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_56.html">Zeng Long</a>
+                  </td>
+                  <td class="num">2135</td>
+                  <td class="num">20</td>
+                  <td class="num">40</td>
+                </tr>
+                <tr>
+                  <td class="num">21</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_139.html">Lu FangHai</a>
+                  </td>
+                  <td class="num">2104</td>
+                  <td class="num">0</td>
+                  <td class="num">18</td>
+                </tr>
+                <tr>
+                  <td class="num">22</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_243.html">Xu Liu</a>
+                  </td>
+                  <td class="num">2097</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">23</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_286.html">Zhou Xuan</a>
+                  </td>
+                  <td class="num">2091</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">24</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_138.html">Wei Hua Wei</a>
+                  </td>
+                  <td class="num">2090</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">25</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_284.html">Xue Wenxi</a>
+                  </td>
+                  <td class="num">2065</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">26</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_90.html">Yi Qunmei</a>
+                  </td>
+                  <td class="num">2064</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">27</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_267.html">Chen Shoude</a>
+                  </td>
+                  <td class="num">2046</td>
+                  <td class="num">20</td>
+                  <td class="num">40</td>
+                </tr>
+                <tr>
+                  <td class="num">28</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_227.html">Zheng Huai Wei</a>
+                  </td>
+                  <td class="num">2039</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">29</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_287.html">Wang Xiang Dong</a>
+                  </td>
+                  <td class="num">2029</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">30</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_216.html">Feng Huasheng</a>
+                  </td>
+                  <td class="num">2016</td>
+                  <td class="num">20</td>
+                  <td class="num">40</td>
+                </tr>
+                <tr>
+                  <td class="num">31</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_228.html">Yang Cindy</a>
+                  </td>
+                  <td class="num">1999</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">32</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_280.html">Wu Yue Sheng</a>
+                  </td>
+                  <td class="num">1943</td>
+                  <td class="num">20</td>
+                  <td class="num">40</td>
+                </tr>
+                <tr>
+                  <td class="num">33</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_260.html">Shenyi</a>
+                  </td>
+                  <td class="num">1916</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">34</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_207.html">Ronghua Huang</a>
+                  </td>
+                  <td class="num">1880</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">35</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_281.html">Liu Qingxiang</a>
+                  </td>
+                  <td class="num">1861</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">36</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_198.html">Chong Wang</a>
+                  </td>
+                  <td class="num">1847</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">37</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_209.html">Chen Titan</a>
+                  </td>
+                  <td class="num">1836</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">38</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_283.html">Ge Chen</a>
+                  </td>
+                  <td class="num">1809</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">39</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_242.html">Chen Y.</a>
+                  </td>
+                  <td class="num">1775</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">40</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_291.html">Wu Pengyu</a>
+                  </td>
+                  <td class="num">1754</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">41</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_108.html">Liu Chao</a>
+                  </td>
+                  <td class="num">1742</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">42</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_261.html">Lin Wen Sheng</a>
+                  </td>
+                  <td class="num">1716</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">43</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_189.html">Die Mi</a>
+                  </td>
+                  <td class="num">1701</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">44</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_133.html">Zhang Tongxiang</a>
+                  </td>
+                  <td class="num">1689</td>
+                  <td class="num">0</td>
+                  <td class="num">40</td>
+                </tr>
+                <tr>
+                  <td class="num">45</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_256.html">Luo Dan</a>
+                  </td>
+                  <td class="num">1666</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">46</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_219.html">Yu Manjiang</a>
+                  </td>
+                  <td class="num">1665</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">47</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_289.html">Li Fei</a>
+                  </td>
+                  <td class="num">1648</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">48</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_60.html">Ma GuangZhzo</a>
+                  </td>
+                  <td class="num">1642</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">49</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_306.html">Hong Gang</a>
+                  </td>
+                  <td class="num">1634</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">50</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_130.html">Zhliup Z.</a>
+                  </td>
+                  <td class="num">1623</td>
+                  <td class="num">0</td>
+                  <td class="num">14</td>
+                </tr>
+                <tr>
+                  <td class="num">51</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_195.html">Li Ruifan</a>
+                  </td>
+                  <td class="num">1587</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">52</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_200.html">Yin Fangjian</a>
+                  </td>
+                  <td class="num">1586</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">53</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_208.html">Rongwang Chen</a>
+                  </td>
+                  <td class="num">1476</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">54</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_259.html">Yu Xue Li</a>
+                  </td>
+                  <td class="num">1417</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">55</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_258.html">Qijin Hou</a>
+                  </td>
+                  <td class="num">1417</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">56</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_257.html">Cui Yue</a>
+                  </td>
+                  <td class="num">1417</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">57</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_192.html">Wu Chang</a>
+                  </td>
+                  <td class="num">1385</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">58</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_44.html">Fan Shuitao</a>
+                  </td>
+                  <td class="num">1383</td>
+                  <td class="num">0</td>
+                  <td class="num">18</td>
+                </tr>
+                <tr>
+                  <td class="num">59</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_197.html">Wang Rui</a>
+                  </td>
+                  <td class="num">1363</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">60</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_254.html">Wang Tengfei</a>
+                  </td>
+                  <td class="num">1301</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">61</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_253.html">Huoyu Cen</a>
+                  </td>
+                  <td class="num">1301</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">62</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_247.html">Zhao Jianxin</a>
+                  </td>
+                  <td class="num">1297</td>
+                  <td class="num">0</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">63</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_292.html">Xi Rong</a>
+                  </td>
+                  <td class="num">1219</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+                <tr>
+                  <td class="num">64</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_14.html">Wang Tom</a>
+                  </td>
+                  <td class="num">1177</td>
+                  <td class="num">0</td>
+                  <td class="num">22</td>
+                </tr>
+                <tr>
+                  <td class="num">65</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_282.html">Chen Hui</a>
+                  </td>
+                  <td class="num">1148</td>
+                  <td class="num">20</td>
+                  <td class="num">20</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="clear" />
+      </div>
+      <div id="footer">
+        <p>Theme based on <a href="http://templated.co/genericblue">GenericBlue</a> designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>
