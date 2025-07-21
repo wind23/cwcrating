@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="keywords" content="Renju, Renju rating, whole-history rating, WHR" />
+    <meta name="description" content="Whole-history rating of Renju players" />
+    <meta name="author" content="Tianyi Hao" />
+    <meta name="copyright" content="2025 Renju Rating" />
+    <title>History Ratings of Top Correspondence Players - Renju Rating</title>
+    <script>
+        if (window.location.protocol != "file:") {
+            var _hmt = _hmt || [];
+            (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?cb525b0b0c34b96320b743cdf90a90c3";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+            })();
+        }
+    </script>
+    <script>
+        if (window.location.protocol != "file:") {
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-119927498-1', 'auto');
+            ga('send', 'pageview');
+        }
+    </script>
+    <link href="css/default.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="outer">
+      <div id="header"></div>
+      <div id="menu">
+        <ul>
+          <li class="first">
+            <a href="index.html">Home page</a>
+          </li>
+          <li>
+            <a href="players.html">Players</a>
+          </li>
+          <li>
+            <a href="tournaments.html">Tournaments</a>
+          </li>
+          <li>
+            <a href="top.html">History of Top players</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="primaryContentContainer">
+          <div id="primaryContent">
+            <link href="css/nv.d3.css" rel="stylesheet" type="text/css">
+            <h1>History Ratings of Top Correspondence Players</h1>
+            <div id="chart1"></div>
+            <script src="js/d3.min.js" charset="utf-8"></script>
+            <script src="js/nv.d3.js"></script>
+            <script>
+    var chart;
+    var data;
+
+    nv.addGraph(function() {
+        data = Data();
+
+        chart = nv.models.lineChart()
+            .options({
+                duration: 300,
+                useInteractiveGuideline: true
+            })
+        ;
+
+        chart.xAxis
+            .axisLabel("Date")
+            .tickFormat(function(d) {
+          return d3.time.format('%Y-%m-%d')(new Date(d))
+		});
+
+		chart.xScale(d3.time.scale());
+
+        chart.yAxis
+            .axisLabel('Rating')
+            .tickFormat(d3.format(',.2f'))
+        ;
+		
+		chart.showYAxis(true).showXAxis(true).showLegend(true).margin({top:20, left: 100, right:100});
+
+        d3.select('#chart1').append('svg')
+            .datum(data)
+            .call(chart);
+
+        nv.utils.windowResize(chart.update);
+
+        return chart;
+    });
+
+    function Data() {
+        var rating_502 = [{x: 1546214400000, y: 2563.881672}, {x: 1577750400000, y: 2633.437274}, ];
+        var rating_54 = [{x: 1041292800000, y: 2216.347976}, {x: 1072828800000, y: 2260.538840}, {x: 1104451200000, y: 2382.240937}, {x: 1135987200000, y: 2499.885442}, {x: 1167523200000, y: 2600.247378}, {x: 1199059200000, y: 2613.952306}, {x: 1514678400000, y: 2498.080078}, {x: 1546214400000, y: 2486.998267}, {x: 1609372800000, y: 2354.418755}, ];
+        var rating_22 = [{x: 946598400000, y: 2271.764425}, {x: 1009756800000, y: 2269.168921}, {x: 1041292800000, y: 2323.298114}, {x: 1072828800000, y: 2306.991681}, {x: 1104451200000, y: 2406.310039}, {x: 1135987200000, y: 2485.180302}, {x: 1167523200000, y: 2588.180410}, ];
+        var rating_477 = [{x: 1451520000000, y: 2535.596946}, {x: 1514678400000, y: 2585.369792}, {x: 1546214400000, y: 2581.198191}, ];
+        var rating_27 = [{x: 946598400000, y: 2212.153476}, {x: 978220800000, y: 2321.554366}, {x: 1009756800000, y: 2400.027596}, {x: 1041292800000, y: 2449.718641}, {x: 1072828800000, y: 2406.096337}, {x: 1104451200000, y: 2413.981452}, {x: 1135987200000, y: 2461.199088}, {x: 1167523200000, y: 2493.549852}, {x: 1199059200000, y: 2537.482797}, {x: 1230681600000, y: 2580.755428}, ];
+        var rating_148 = [{x: 1072828800000, y: 2245.028695}, {x: 1104451200000, y: 2386.110205}, {x: 1135987200000, y: 2421.395241}, {x: 1167523200000, y: 2574.638769}, ];
+        var rating_72 = [{x: 1072828800000, y: 2211.177591}, {x: 1104451200000, y: 2297.797115}, {x: 1135987200000, y: 2306.534339}, {x: 1167523200000, y: 2392.360202}, {x: 1199059200000, y: 2487.823216}, {x: 1230681600000, y: 2538.459686}, {x: 1325289600000, y: 2482.379587}, {x: 1356912000000, y: 2517.943255}, {x: 1388448000000, y: 2532.301010}, ];
+        var rating_522 = [{x: 1577750400000, y: 2501.097745}, {x: 1609372800000, y: 2524.827915}, {x: 1640908800000, y: 2485.965677}, {x: 1672444800000, y: 2492.393322}, ];
+        var rating_191 = [{x: 1072828800000, y: 2512.792058}, ];
+        var rating_160 = [{x: 1041292800000, y: 2469.576310}, {x: 1072828800000, y: 2467.648275}, {x: 1104451200000, y: 2490.535760}, {x: 1135987200000, y: 2424.182801}, {x: 1167523200000, y: 2438.279954}, {x: 1199059200000, y: 2447.660923}, {x: 1230681600000, y: 2510.286432}, {x: 1325289600000, y: 2463.956451}, {x: 1356912000000, y: 2495.603628}, {x: 1388448000000, y: 2444.171863}, {x: 1514678400000, y: 2370.807024}, {x: 1546214400000, y: 2329.249038}, ];
+        var rating_91 = [{x: 1072828800000, y: 1975.303321}, {x: 1104451200000, y: 2008.064708}, {x: 1135987200000, y: 2027.909240}, {x: 1230681600000, y: 2340.538248}, {x: 1325289600000, y: 2459.178125}, {x: 1356912000000, y: 2491.069781}, {x: 1514678400000, y: 2361.187903}, {x: 1546214400000, y: 2370.059480}, {x: 1577750400000, y: 2393.540904}, {x: 1609372800000, y: 2503.074603}, {x: 1640908800000, y: 2449.688561}, {x: 1672444800000, y: 2456.198351}, {x: 1735603200000, y: 2413.056173}, ];
+        var rating_145 = [{x: 1072828800000, y: 2206.422070}, {x: 1104451200000, y: 2228.275374}, {x: 1135987200000, y: 2357.803679}, {x: 1167523200000, y: 2426.455372}, {x: 1199059200000, y: 2441.851079}, {x: 1230681600000, y: 2501.372187}, ];
+        var rating_163 = [{x: 1041292800000, y: 2351.688442}, {x: 1072828800000, y: 2428.401476}, {x: 1104451200000, y: 2501.304400}, ];
+        var rating_117 = [{x: 915062400000, y: 2140.144300}, {x: 946598400000, y: 2215.480823}, {x: 978220800000, y: 2375.443582}, {x: 1009756800000, y: 2427.153722}, {x: 1041292800000, y: 2487.872803}, ];
+        var rating_443 = [{x: 1356912000000, y: 2400.940127}, {x: 1388448000000, y: 2461.409984}, {x: 1419984000000, y: 2484.845147}, {x: 1546214400000, y: 2358.332637}, {x: 1577750400000, y: 2353.494414}, {x: 1609372800000, y: 2340.779976}, {x: 1640908800000, y: 2246.905084}, {x: 1703980800000, y: 2312.325425}, ];
+        var rating_517 = [{x: 1577750400000, y: 2400.511679}, {x: 1609372800000, y: 2453.046832}, {x: 1735603200000, y: 2478.765441}, ];
+        var rating_147 = [{x: 1104451200000, y: 2455.275287}, {x: 1135987200000, y: 2464.905830}, {x: 1167523200000, y: 2477.604360}, ];
+        var rating_155 = [{x: 1072828800000, y: 2162.635119}, {x: 1104451200000, y: 2272.084593}, {x: 1135987200000, y: 2299.243259}, {x: 1167523200000, y: 2402.810344}, {x: 1199059200000, y: 2472.253525}, {x: 1230681600000, y: 2475.407498}, ];
+        var rating_125 = [{x: 1104451200000, y: 2452.692113}, {x: 1135987200000, y: 2417.588489}, {x: 1167523200000, y: 2354.138755}, ];
+        var rating_49 = [{x: 1041292800000, y: 2303.240792}, {x: 1072828800000, y: 2399.711780}, {x: 1104451200000, y: 2441.651226}, {x: 1135987200000, y: 2410.973493}, {x: 1167523200000, y: 2406.584969}, ];
+        var rating_161 = [{x: 1041292800000, y: 2394.150702}, {x: 1072828800000, y: 2441.127406}, ];
+        var rating_140 = [{x: 1072828800000, y: 2393.092304}, {x: 1104451200000, y: 2419.427028}, {x: 1135987200000, y: 2413.769597}, {x: 1167523200000, y: 2407.691159}, ];
+        var rating_48 = [{x: 1041292800000, y: 2401.269064}, {x: 1072828800000, y: 2390.407737}, {x: 1104451200000, y: 2307.615332}, ];
+        var rating_9 = [{x: 915062400000, y: 2206.678476}, {x: 946598400000, y: 2218.570104}, {x: 978220800000, y: 2225.898857}, {x: 1009756800000, y: 2267.286499}, {x: 1041292800000, y: 2298.096533}, {x: 1072828800000, y: 2385.023380}, {x: 1104451200000, y: 2390.295724}, {x: 1135987200000, y: 2300.700623}, ];
+        var rating_70 = [{x: 978220800000, y: 2388.885189}, {x: 1009756800000, y: 2339.036722}, {x: 1041292800000, y: 2358.968782}, {x: 1072828800000, y: 2304.633614}, {x: 1104451200000, y: 2139.975657}, {x: 1135987200000, y: 2196.909957}, {x: 1167523200000, y: 1939.956829}, {x: 1199059200000, y: 1763.792827}, ];
+        var rating_47 = [{x: 946598400000, y: 2306.855500}, {x: 978220800000, y: 2309.123018}, {x: 1009756800000, y: 2385.493607}, {x: 1041292800000, y: 2317.591453}, {x: 1072828800000, y: 2313.505292}, {x: 1104451200000, y: 2279.821761}, {x: 1135987200000, y: 2315.728891}, {x: 1167523200000, y: 2382.911631}, {x: 1199059200000, y: 2330.996446}, {x: 1230681600000, y: 2306.054976}, {x: 1325289600000, y: 2278.287245}, {x: 1356912000000, y: 2187.654855}, {x: 1388448000000, y: 2303.062194}, {x: 1419984000000, y: 2315.484857}, {x: 1451520000000, y: 2373.883085}, {x: 1514678400000, y: 2320.533202}, {x: 1546214400000, y: 2302.280567}, {x: 1577750400000, y: 2280.920705}, {x: 1609372800000, y: 2260.481831}, {x: 1640908800000, y: 2252.815989}, {x: 1672444800000, y: 2191.943078}, ];
+        var rating_42 = [{x: 915062400000, y: 2275.824867}, {x: 946598400000, y: 2236.218869}, {x: 978220800000, y: 2280.001641}, {x: 1009756800000, y: 2286.724072}, {x: 1041292800000, y: 2281.561846}, {x: 1072828800000, y: 2362.331533}, {x: 1104451200000, y: 2360.826589}, {x: 1135987200000, y: 2341.010304}, {x: 1167523200000, y: 2258.190158}, {x: 1199059200000, y: 2367.821006}, {x: 1230681600000, y: 2413.759170}, {x: 1325289600000, y: 2357.839603}, {x: 1356912000000, y: 2340.096933}, {x: 1388448000000, y: 2357.316068}, {x: 1419984000000, y: 2371.703464}, {x: 1451520000000, y: 2299.577574}, {x: 1514678400000, y: 2184.206793}, {x: 1546214400000, y: 2121.205771}, {x: 1577750400000, y: 2085.916626}, {x: 1609372800000, y: 2076.755534}, ];
+        var rating_162 = [{x: 1041292800000, y: 2323.879927}, {x: 1072828800000, y: 2353.158358}, {x: 1104451200000, y: 2314.027254}, ];
+        var rating_146 = [{x: 1041292800000, y: 2338.828542}, {x: 1072828800000, y: 2320.159346}, {x: 1104451200000, y: 2370.553802}, {x: 1135987200000, y: 2355.802037}, {x: 1167523200000, y: 2240.445240}, ];
+        var rating_6 = [{x: 915062400000, y: 2223.919056}, {x: 946598400000, y: 2296.498490}, {x: 978220800000, y: 2294.313748}, {x: 1009756800000, y: 2313.483980}, {x: 1041292800000, y: 2314.676249}, {x: 1072828800000, y: 2247.757575}, {x: 1104451200000, y: 2243.790091}, ];
+        var rating_41 = [{x: 915062400000, y: 2276.579934}, {x: 946598400000, y: 2310.618261}, {x: 978220800000, y: 2235.350015}, {x: 1009756800000, y: 2267.776122}, {x: 1041292800000, y: 2258.881260}, {x: 1072828800000, y: 2259.135678}, {x: 1104451200000, y: 2176.146989}, {x: 1135987200000, y: 2260.324761}, {x: 1167523200000, y: 2284.386327}, {x: 1199059200000, y: 2121.114692}, {x: 1230681600000, y: 2053.316690}, {x: 1325289600000, y: 2229.113546}, {x: 1356912000000, y: 2307.621110}, {x: 1388448000000, y: 2338.443699}, {x: 1419984000000, y: 2337.245693}, {x: 1451520000000, y: 2322.067782}, {x: 1514678400000, y: 2206.761980}, {x: 1546214400000, y: 2176.617457}, {x: 1577750400000, y: 2151.341133}, {x: 1609372800000, y: 2094.505101}, {x: 1640908800000, y: 2130.540476}, {x: 1672444800000, y: 2197.395789}, {x: 1735603200000, y: 2182.388945}, ];
+        var rating_8 = [{x: 946598400000, y: 2307.258018}, {x: 978220800000, y: 2259.099610}, {x: 1009756800000, y: 2233.309875}, {x: 1041292800000, y: 2048.092631}, ];
+        var rating_18 = [{x: 915062400000, y: 2140.177369}, {x: 946598400000, y: 2191.599018}, {x: 978220800000, y: 2217.332175}, {x: 1009756800000, y: 2298.713305}, {x: 1041292800000, y: 2291.753928}, {x: 1325289600000, y: 2335.757253}, {x: 1356912000000, y: 2259.097695}, ];
+        var rating_156 = [{x: 883526400000, y: 2158.300027}, {x: 915062400000, y: 2223.723943}, {x: 946598400000, y: 2260.833637}, {x: 978220800000, y: 2296.723151}, {x: 1009756800000, y: 2197.286578}, ];
+        var rating_21 = [{x: 946598400000, y: 2272.663136}, {x: 978220800000, y: 2178.193555}, {x: 1167523200000, y: 2041.843237}, {x: 1230681600000, y: 1642.232999}, ];
+        var rating_43 = [{x: 946598400000, y: 2209.709632}, {x: 978220800000, y: 2187.990195}, {x: 1009756800000, y: 2268.872639}, {x: 1041292800000, y: 2208.406287}, {x: 1072828800000, y: 2122.048051}, {x: 1135987200000, y: 2298.518135}, {x: 1167523200000, y: 2328.372403}, {x: 1199059200000, y: 2245.397078}, {x: 1230681600000, y: 2062.915772}, {x: 1325289600000, y: 1977.042749}, ];
+        var rating_39 = [{x: 978220800000, y: 2264.287220}, ];
+        var rating_10 = [{x: 946598400000, y: 2211.943161}, {x: 978220800000, y: 2245.040497}, ];
+        var rating_116 = [{x: 883526400000, y: 2164.742779}, {x: 915062400000, y: 2170.331006}, {x: 946598400000, y: 2209.280377}, {x: 1325289600000, y: 2369.522242}, {x: 1356912000000, y: 2368.916896}, {x: 1388448000000, y: 2320.211423}, ];
+        var rating_111 = [{x: 915062400000, y: 2149.883528}, {x: 946598400000, y: 2077.221547}, ];
+        var rating_32 = [{x: 915062400000, y: 2143.113271}, {x: 946598400000, y: 2197.875572}, {x: 978220800000, y: 2218.938747}, {x: 1009756800000, y: 2076.900658}, {x: 1041292800000, y: 2080.960524}, {x: 1104451200000, y: 1770.870268}, {x: 1514678400000, y: 1078.201809}, ];
+        var rating_100 = [{x: 915062400000, y: 2138.313424}, {x: 946598400000, y: 2111.219674}, {x: 978220800000, y: 2115.362599}, {x: 1009756800000, y: 1990.727875}, {x: 1041292800000, y: 1877.503234}, ];
+        var rating_51 = [{x: 883526400000, y: 2107.359135}, {x: 915062400000, y: 2130.276216}, {x: 946598400000, y: 2170.596793}, {x: 978220800000, y: 2182.621328}, {x: 1009756800000, y: 2179.197077}, {x: 1041292800000, y: 2184.405845}, {x: 1072828800000, y: 2195.528378}, {x: 1104451200000, y: 2139.312238}, {x: 1167523200000, y: 2204.106108}, {x: 1199059200000, y: 2222.603666}, {x: 1230681600000, y: 2252.693342}, {x: 1325289600000, y: 2337.972548}, {x: 1356912000000, y: 2373.265519}, {x: 1388448000000, y: 2335.370119}, {x: 1514678400000, y: 2288.784259}, {x: 1546214400000, y: 2222.840857}, {x: 1577750400000, y: 2152.737919}, {x: 1609372800000, y: 2102.967804}, {x: 1640908800000, y: 2063.174521}, {x: 1672444800000, y: 2058.091777}, {x: 1703980800000, y: 2027.696593}, {x: 1735603200000, y: 1978.888320}, ];
+        var rating_120 = [{x: 883526400000, y: 2103.533165}, {x: 915062400000, y: 2050.457039}, ];
+        var rating_121 = [{x: 883526400000, y: 2075.276089}, {x: 915062400000, y: 2051.773689}, ];
+        var rating_1 = [{x: 883526400000, y: 2041.637471}, {x: 915062400000, y: 2091.555334}, {x: 946598400000, y: 2128.425783}, {x: 978220800000, y: 2086.305655}, {x: 1356912000000, y: 1750.709374}, ];
+
+        return [
+            { values: rating_502, key: "Wang Qichao", color: "#FF4500", },
+            { values: rating_54, key: "Epifanov Dmitriy", color: "#0000FF", },
+            { values: rating_22, key: "Barykin Viktor", color: "#006400", },
+            { values: rating_477, key: "Hao Tianyi", color: "#DA70D6", },
+            { values: rating_27, key: "Zhang Jinyu", color: "#7CFC00", },
+            { values: rating_148, key: "Yuang Coco", color: "#00BFFF", },
+            { values: rating_72, key: "Balanova Jelena", color: "#800000", },
+            { values: rating_522, key: "Yao Yujie", color: "#9400D3", },
+            { values: rating_191, key: "Xinpeng Lee", color: "#008080", },
+            { values: rating_160, key: "Potapov Alexey", color: "#FF1493", },
+            { values: rating_91, key: "Oll Aivo", color: "#00008B", },
+            { values: rating_145, key: "Suslov Alexander", color: "#708090", },
+            { values: rating_163, key: "Sun Chengmin", color: "#FF00FF", },
+            { values: rating_117, key: "Lunkin Vitali", color: "#7FFFD4", },
+            { values: rating_443, key: "Sushkov Vladimir", color: "#FA8072", },
+            { values: rating_517, key: "Ni Zhongxing", color: "#B8860B", },
+            { values: rating_147, key: "Bai Shi", color: "#4169E1", },
+            { values: rating_155, key: "Ustimov Anatoly", color: "#FFD700", },
+            { values: rating_125, key: "Mao Mao", color: "#DC143C", },
+            { values: rating_49, key: "Chen Wei", color: "#2F4F4F", },
+            { values: rating_161, key: "Yang Meng", color: "#BDB76B", },
+            { values: rating_140, key: "Song Xian", color: "#00FF7F", },
+            { values: rating_48, key: "Klimachev Oleg", color: "#32CD32", },
+            { values: rating_9, key: "Filippov Sergey", color: "#8B008B", },
+            { values: rating_70, key: "Dvoeglazov Vladimir", color: "#8B4513", },
+            { values: rating_47, key: "Nikonov Konstantin", color: "#9370DB", },
+            { values: rating_42, key: "Bobkov Yevgeni", color: "#FF0000", },
+            { values: rating_162, key: "Fedulina Tanja", color: "#FF8C00", },
+            { values: rating_146, key: "Lu Wenzhe", color: "#483D8B", },
+            { values: rating_6, key: "Nosovsky Alexander", color: "#20B2AA", },
+            { values: rating_41, key: "Fedorkin Oleg", color: "#00FFFF", },
+            { values: rating_8, key: "Kozhin Mikhail", color: "#00FF00", },
+            { values: rating_18, key: "Soosyrv Ants", color: "#228B22", },
+            { values: rating_156, key: "Reims Aldis", color: "#4B0082", },
+            { values: rating_21, key: "Mikhailov Alexander", color: "#CD5C5C", },
+            { values: rating_43, key: "Salnikov Pavel", color: "#C71585", },
+            { values: rating_39, key: "Milevsky Alexander", color: "#6495ED", },
+            { values: rating_10, key: "Wallgren Bjorn", color: "#808000", },
+            { values: rating_116, key: "Tarannikov Juri", color: "#66CDAA", },
+            { values: rating_111, key: "Smirnov Sergey", color: "#556B2F", },
+            { values: rating_32, key: "Sinyov Igor", color: "#1E90FF", },
+            { values: rating_100, key: "Hasegawa Kazuto", color: "#FF6347", },
+            { values: rating_51, key: "Golosov Victor", color: "#4682B4", },
+            { values: rating_120, key: "Karlsson Stefan", color: "#9ACD32", },
+            { values: rating_121, key: "Meritee Ando", color: "#B22222", },
+            { values: rating_1, key: "Kawamura Norihiko", color: "#FF69B4", },
+        ];
+    }
+
+</script>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Year</th>
+                  <th>1st</th>
+                  <th>2nd</th>
+                  <th>3rd</th>
+                  <th>4th</th>
+                  <th>5th</th>
+                </tr>
+                <tr>
+                  <td class="num">1997</td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_116.html">Tarannikov Juri</a>
+                  </td>
+                  <td>
+                    <img src="flag/LAT.svg" class="flag" alt="LAT" />
+                    <a href="player_156.html">Reims Aldis</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_51.html">Golosov Victor</a>
+                  </td>
+                  <td>
+                    <img src="flag/SWE.svg" class="flag" alt="SWE" />
+                    <a href="player_120.html">Karlsson Stefan</a>
+                  </td>
+                  <td>
+                    <img src="flag/EST.svg" class="flag" alt="EST" />
+                    <a href="player_121.html">Meritee Ando</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">1998</td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_41.html">Fedorkin Oleg</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_42.html">Bobkov Yevgeni</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_6.html">Nosovsky Alexander</a>
+                  </td>
+                  <td>
+                    <img src="flag/LAT.svg" class="flag" alt="LAT" />
+                    <a href="player_156.html">Reims Aldis</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_9.html">Filippov Sergey</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">1999</td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_41.html">Fedorkin Oleg</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_8.html">Kozhin Mikhail</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_47.html">Nikonov Konstantin</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_6.html">Nosovsky Alexander</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_21.html">Mikhailov Alexander</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2000</td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_70.html">Dvoeglazov Vladimir</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_117.html">Lunkin Vitali</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_27.html">Zhang Jinyu</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_47.html">Nikonov Konstantin</a>
+                  </td>
+                  <td>
+                    <img src="flag/LAT.svg" class="flag" alt="LAT" />
+                    <a href="player_156.html">Reims Aldis</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2001</td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_117.html">Lunkin Vitali</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_27.html">Zhang Jinyu</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_47.html">Nikonov Konstantin</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_70.html">Dvoeglazov Vladimir</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_6.html">Nosovsky Alexander</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2002</td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_117.html">Lunkin Vitali</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_160.html">Potapov Alexey</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_27.html">Zhang Jinyu</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_48.html">Klimachev Oleg</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_161.html">Yang Meng</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2003</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_191.html">Xinpeng Lee</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_160.html">Potapov Alexey</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_161.html">Yang Meng</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_163.html">Sun Chengmin</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_27.html">Zhang Jinyu</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2004</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_163.html">Sun Chengmin</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_160.html">Potapov Alexey</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_147.html">Bai Shi</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_125.html">Mao Mao</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_49.html">Chen Wei</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2005</td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_54.html">Epifanov Dmitriy</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_22.html">Barykin Viktor</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_147.html">Bai Shi</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_27.html">Zhang Jinyu</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_160.html">Potapov Alexey</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2006</td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_54.html">Epifanov Dmitriy</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_22.html">Barykin Viktor</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_148.html">Yuang Coco</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_27.html">Zhang Jinyu</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_147.html">Bai Shi</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2007</td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_54.html">Epifanov Dmitriy</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_27.html">Zhang Jinyu</a>
+                  </td>
+                  <td>
+                    <img src="flag/LAT.svg" class="flag" alt="LAT" />
+                    <a href="player_72.html">Balanova Jelena</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_155.html">Ustimov Anatoly</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_160.html">Potapov Alexey</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2008</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_27.html">Zhang Jinyu</a>
+                  </td>
+                  <td>
+                    <img src="flag/LAT.svg" class="flag" alt="LAT" />
+                    <a href="player_72.html">Balanova Jelena</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_160.html">Potapov Alexey</a>
+                  </td>
+                  <td>
+                    <img src="flag/MDA.svg" class="flag" alt="MDA" />
+                    <a href="player_145.html">Suslov Alexander</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_155.html">Ustimov Anatoly</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2011</td>
+                  <td>
+                    <img src="flag/LAT.svg" class="flag" alt="LAT" />
+                    <a href="player_72.html">Balanova Jelena</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_160.html">Potapov Alexey</a>
+                  </td>
+                  <td>
+                    <img src="flag/EST.svg" class="flag" alt="EST" />
+                    <a href="player_91.html">Oll Aivo</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_408.html">Berezin Roman</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_116.html">Tarannikov Juri</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2012</td>
+                  <td>
+                    <img src="flag/LAT.svg" class="flag" alt="LAT" />
+                    <a href="player_72.html">Balanova Jelena</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_160.html">Potapov Alexey</a>
+                  </td>
+                  <td>
+                    <img src="flag/EST.svg" class="flag" alt="EST" />
+                    <a href="player_91.html">Oll Aivo</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_443.html">Sushkov Vladimir</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_194.html">Viktor Balabhai</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2013</td>
+                  <td>
+                    <img src="flag/LAT.svg" class="flag" alt="LAT" />
+                    <a href="player_72.html">Balanova Jelena</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_443.html">Sushkov Vladimir</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_160.html">Potapov Alexey</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_42.html">Bobkov Yevgeni</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_194.html">Viktor Balabhai</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2014</td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_443.html">Sushkov Vladimir</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_470.html">Qi Bo</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_42.html">Bobkov Yevgeni</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_468.html">Si Yuming</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_41.html">Fedorkin Oleg</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2015</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_477.html">Hao Tianyi</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_47.html">Nikonov Konstantin</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_470.html">Qi Bo</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_41.html">Fedorkin Oleg</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_42.html">Bobkov Yevgeni</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2017</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_477.html">Hao Tianyi</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_54.html">Epifanov Dmitriy</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_470.html">Qi Bo</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_160.html">Potapov Alexey</a>
+                  </td>
+                  <td>
+                    <img src="flag/EST.svg" class="flag" alt="EST" />
+                    <a href="player_91.html">Oll Aivo</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2018</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_477.html">Hao Tianyi</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_502.html">Wang Qichao</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_54.html">Epifanov Dmitriy</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_509.html">Xiong Yi</a>
+                  </td>
+                  <td>
+                    <img src="flag/KOR.svg" class="flag" alt="KOR" />
+                    <a href="player_504.html">Lee Jinsu</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2019</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_502.html">Wang Qichao</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_522.html">Yao Yujie</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_519.html">Sun Jinxue</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_509.html">Xiong Yi</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_517.html">Ni Zhongxing</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2020</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_522.html">Yao Yujie</a>
+                  </td>
+                  <td>
+                    <img src="flag/EST.svg" class="flag" alt="EST" />
+                    <a href="player_91.html">Oll Aivo</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_433.html">Qiu Weifu</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_517.html">Ni Zhongxing</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_532.html">Li Yang Junyi</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2021</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_522.html">Yao Yujie</a>
+                  </td>
+                  <td>
+                    <img src="flag/EST.svg" class="flag" alt="EST" />
+                    <a href="player_91.html">Oll Aivo</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_537.html">Li Xueyang</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_621.html">Yao Bocheng</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_52.html">Filinov Vladimir</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2022</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_522.html">Yao Yujie</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_632.html">Xu Yili</a>
+                  </td>
+                  <td>
+                    <img src="flag/EST.svg" class="flag" alt="EST" />
+                    <a href="player_91.html">Oll Aivo</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_537.html">Li Xueyang</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_621.html">Yao Bocheng</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2023</td>
+                  <td>
+                    <img src="flag/USA.svg" class="flag" alt="USA" />
+                    <a href="player_643.html">Han Zongbin</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_644.html">Jin Rui</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_443.html">Sushkov Vladimir</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_641.html">Lu Yi</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_638.html">Su Baowen</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="num">2024</td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_517.html">Ni Zhongxing</a>
+                  </td>
+                  <td>
+                    <img src="flag/EST.svg" class="flag" alt="EST" />
+                    <a href="player_91.html">Oll Aivo</a>
+                  </td>
+                  <td>
+                    <img src="flag/USA.svg" class="flag" alt="USA" />
+                    <a href="player_643.html">Han Zongbin</a>
+                  </td>
+                  <td>
+                    <img src="flag/CHN.svg" class="flag" alt="CHN" />
+                    <a href="player_644.html">Jin Rui</a>
+                  </td>
+                  <td>
+                    <img src="flag/RRA.svg" class="flag" alt="RRA" />
+                    <a href="player_531.html">Koreshkov Valeriy</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p><b>Note:</b> This table only contains players with <b>Gy1</b>&gt;0.</p>
+          </div>
+        </div>
+        <div class="clear" />
+      </div>
+      <div id="footer">
+        <p>Theme based on <a href="http://templated.co/genericblue">GenericBlue</a> designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>
